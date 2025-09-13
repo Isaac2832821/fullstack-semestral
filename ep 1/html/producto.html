@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Producto - Tienda Online</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>■ Site Name</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions" id="user-actions">
+                <a href="carrito.html" class="cart-link">
+                    🛒 Cart (<span id="cart-count">0</span>)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="breadcrumb">
+            <div class="container">
+                <nav>
+                    <a href="index.html">Home</a> > 
+                    <a href="productos.html">Productos</a> > 
+                    <span id="breadcrumb-product-name">Detalle de Producto</span>
+                </nav>
+            </div>
+        </section>
+
+        <section class="product-detail-section">
+            <div class="container">
+                <div class="product-detail" id="product-detail">
+                    <!-- El detalle del producto se cargará dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+        <section class="related-products-section">
+            <div class="container">
+                <h2>Productos Relacionados</h2>
+                <div class="products-grid" id="related-products">
+                    <!-- Los productos relacionados se cargarán dinámicamente -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TechMarket</h3>
+                    <p>Tu tienda de confianza para productos tecnológicos de alta calidad.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="blogs.html">Blog</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-info-footer">
+                        <div class="contact-item-footer">
+                            <span class="footer-emoji">📍</span>
+                            <div>
+                                <strong>DIRECCIÓN</strong>
+                                <p>Av. Providencia 1234, Santiago, Chile</p>
+                            </div>
+                        </div>
+                        <div class="contact-item-footer">
+                            <span class="footer-emoji">📞</span>
+                            <div>
+                                <strong>TELÉFONO</strong>
+                                <p>+56 2 2345 6789</p>
+                                <p>+56 9 8765 4321</p>
+                            </div>
+                        </div>
+                        <div class="contact-item-footer">
+                            <span class="footer-emoji">✉️</span>
+                            <div>
+                                <strong>EMAIL</strong>
+                                <p>info@techmarket.cl</p>
+                                <p>soporte@techmarket.cl</p>
+                            </div>
+                        </div>
+                        <div class="contact-item-footer">
+                            <span class="footer-emoji">🕒</span>
+                            <div>
+                                <strong>HORARIO DE ATENCIÓN</strong>
+                                <p>Lunes a Viernes: 9:00 - 18:00</p>
+                                <p>Sábado: 10:00 - 14:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tienda Online. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <p>Este sitio utiliza cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra política de cookies.</p>
+        <div class="cookie-actions">
+            <button class="btn-secondary" id="cookieAccept">Aceptar</button>
+            <button class="btn-primary" id="cookieSettings">Configurar</button>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/product-detail.js"></script>
+    <script src="js/common.js"></script>
+</body>
+</html>

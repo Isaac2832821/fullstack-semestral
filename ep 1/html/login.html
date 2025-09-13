@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Tienda Online</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>■ Site Name</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions" id="user-actions">
+                <a href="carrito.html" class="cart-link">
+                    🛒 Cart (<span id="cart-count">0</span>)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <div class="container">
+                <div class="form-container">
+                    <h1>Iniciar Sesión</h1>
+                    
+                    <!-- Paso 1: Formulario de credenciales -->
+                    <form id="login-form" novalidate class="active">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required maxlength="100">
+                            <span class="error-message" id="email-error"></span>
+                            <small>Solo se permiten dominios: @duoc.cl, @profesor.duoc.cl, @gmail.com</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Contraseña *</label>
+                            <input type="password" id="password" name="password" required minlength="6">
+                            <span class="error-message" id="password-error"></span>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Continuar</button>
+                            <a href="registro.html" class="btn-secondary">¿No tienes cuenta? Regístrate</a>
+                        </div>
+                    </form>
+                    
+                    <!-- Paso 2: Verificación de código 2FA -->
+                    <form id="verification-form" novalidate class="hidden">
+                        <div class="form-header">
+                            <h2>Verificación en dos pasos</h2>
+                            <p>Hemos enviado un código de verificación a tu email. Por favor, introdúcelo a continuación.</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="verification-code">Código de verificación *</label>
+                            <input type="text" id="verification-code" name="verification-code" required maxlength="6" pattern="[0-9]{6}" inputmode="numeric">
+                            <span class="error-message" id="verification-code-error"></span>
+                            <small>El código expira en 5 minutos</small>
+                        </div>
+                        
+                        <div class="verification-email-info">
+                            <p>Código enviado a: <span id="verification-email"></span></p>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Verificar</button>
+                            <button type="button" id="resend-code" class="btn-secondary">Reenviar código</button>
+                            <button type="button" id="back-to-login" class="btn-link">Volver al inicio de sesión</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TechMarket</h3>
+                    <p>Tu tienda de confianza para productos tecnológicos de alta calidad.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="blogs.html">Blog</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-info-footer">
+                        <div class="contact-item-footer">
+                            <span class="footer-emoji">📍</span>
+                            <div>
+                                <strong>DIRECCIÓN</strong>
+                                <p>Av. Providencia 1234, Santiago, Chile</p>
+                            </div>
+                        </div>
+                        <div class="contact-item-footer">
+                            <span class="footer-emoji">📞</span>
+                            <div>
+                                <strong>TELÉFONO</strong>
+                                <p>+56 2 2345 6789</p>
+                                <p>+56 9 8765 4321</p>
+                            </div>
+                        </div>
+                        <div class="contact-item-footer">
+                            <span class="footer-emoji">✉️</span>
+                            <div>
+                                <strong>EMAIL</strong>
+                                <p>info@techmarket.cl</p>
+                                <p>soporte@techmarket.cl</p>
+                            </div>
+                        </div>
+                        <div class="contact-item-footer">
+                            <span class="footer-emoji">🕒</span>
+                            <div>
+                                <strong>HORARIO DE ATENCIÓN</strong>
+                                <p>Lunes a Viernes: 9:00 - 18:00</p>
+                                <p>Sábado: 10:00 - 14:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tienda Online. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cargar scripts en orden correcto -->
+    <script src="js/auth.js"></script>
+    <script>
+        // Verificar que auth.js se ha cargado correctamente
+        console.log('auth.js cargado, guardarSesion disponible:', typeof window.guardarSesion === 'function');
+    </script>
+    
+    <script src="js/two-factor-auth.js"></script>
+    <script>
+        // Verificar que two-factor-auth.js se ha cargado correctamente
+        console.log('two-factor-auth.js cargado, twoFactorAuth disponible:', window.twoFactorAuth !== undefined);
+    </script>
+    
+    <script src="js/validations.js"></script>
+    <script>
+        // Verificar que el DOM está listo y los scripts se han cargado
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM cargado completamente');
+        });
+    </script>
+    
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <p>Este sitio utiliza cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra política de cookies.</p>
+        <div class="cookie-actions">
+            <button class="btn-secondary" id="cookieAccept">Aceptar</button>
+            <button class="btn-primary" id="cookieSettings">Configurar</button>
+        </div>
+    </div>
+    
+    <script src="js/common.js"></script>
+    <script src="js/two-factor-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

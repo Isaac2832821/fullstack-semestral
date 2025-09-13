@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Usuario - Panel de Administración</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <div class="admin-container">
+        <!-- Sidebar de navegación -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <div class="admin-logo-img">
+                    <i class="fas fa-store fa-lg" style="color: white;"></i>
+                </div>
+                <span>Empresa</span>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="admin.html"><i class="fas fa-tachometer-alt"></i> Panel</a></li>
+                    <li><a href="admin-orders.html"><i class="fas fa-shopping-cart"></i> Pedidos</a></li>
+                    <li><a href="admin-inventory.html"><i class="fas fa-boxes"></i> Inventario</a></li>
+                    <li><a href="admin-reports.html"><i class="fas fa-chart-bar"></i> Informes</a></li>
+                    <li><a href="admin-employees.html"><i class="fas fa-users-cog"></i> Empleados</a></li>
+                    <li class="active"><a href="admin-users.html"><i class="fas fa-users"></i> Clientes</a></li>
+                </ul>
+            </nav>
+            <div class="admin-footer-nav">
+                <ul>
+                    <li><a href="#"><i class="fas fa-cog"></i> Configuración</a></li>
+                    <li><a href="#"><i class="fas fa-user-circle"></i> Perfil</a></li>
+                    <li><a href="#"><i class="fas fa-search"></i> Buscar</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+                    <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>NUEVO USUARIO</h1>
+                <div class="admin-user-menu">
+                    <a href="#" class="admin-notifications"><i class="fas fa-bell"></i></a>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <div class="admin-form-container">
+                    <form id="new-user-form" class="admin-form">
+                        <div class="admin-form-group">
+                            <label for="nombre">Nombre de usuario</label>
+                            <input type="text" id="nombre" name="nombre" class="admin-form-control" required>
+                        </div>
+                        
+                        <div class="admin-form-group">
+                            <label for="correo">Correo electrónico</label>
+                            <input type="email" id="correo" name="correo" class="admin-form-control" required>
+                        </div>
+                        
+                        <div class="admin-form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" class="admin-form-control">
+                        </div>
+                        
+                        <div class="admin-form-group">
+                            <label for="direccion">Dirección</label>
+                            <input type="text" id="direccion" name="direccion" class="admin-form-control">
+                        </div>
+                        
+                        <div class="admin-form-group">
+                            <label for="ciudad">Ciudad</label>
+                            <input type="text" id="ciudad" name="ciudad" class="admin-form-control">
+                        </div>
+                        
+                        <div class="admin-form-group">
+                            <label for="informacion-adicional">Información adicional</label>
+                            <textarea id="informacion-adicional" name="informacion-adicional" class="admin-form-control" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="admin-form-group">
+                            <label for="rut-dni">RUT/DNI (opcional)</label>
+                            <input type="text" id="rut-dni" name="rut-dni" class="admin-form-control">
+                        </div>
+                        
+                        <div class="admin-form-row">
+                            <div class="admin-form-col">
+                                <div class="admin-form-group">
+                                    <label for="password">Contraseña</label>
+                                    <input type="password" id="password" name="password" class="admin-form-control" required>
+                                    <small>* Mínimo 8 caracteres</small>
+                                    <small>* Al menos una mayúscula</small>
+                                    <small>* Al menos un número</small>
+                                </div>
+                            </div>
+                            <div class="admin-form-col">
+                                <div class="admin-form-group">
+                                    <label for="confirm-password">Confirmar contraseña</label>
+                                    <input type="password" id="confirm-password" name="confirm-password" class="admin-form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="admin-form-actions">
+                            <button type="submit" class="admin-btn admin-btn-primary"><i class="fas fa-save"></i> Guardar</button>
+                            <button type="button" class="admin-btn admin-btn-secondary"><i class="fas fa-times"></i> Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

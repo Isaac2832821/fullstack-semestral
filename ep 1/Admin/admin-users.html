@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Usuarios - Panel de Administración</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <div class="admin-container">
+        <!-- Sidebar de navegación -->
+        <aside class="admin-sidebar bg-dark text-white d-flex flex-column h-100">
+            <div class="admin-logo p-3 d-flex align-items-center">
+                <div class="admin-logo-img me-2">
+                    <i class="fas fa-store fa-lg" style="color: white;"></i>
+                </div>
+                <span class="fs-5 fw-semibold">Empresa</span>
+            </div>
+            <nav class="admin-nav flex-grow-1">
+                <div class="list-group list-group-flush border-0">
+                    <a href="admin.html" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-tachometer-alt me-2"></i> Panel</a>
+                    <a href="admin-orders.html" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-shopping-cart me-2"></i> Pedidos</a>
+                    <a href="admin-inventory.html" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-boxes me-2"></i> Inventario</a>
+                    <a href="admin-reports.html" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-chart-bar me-2"></i> Informes</a>
+                    <a href="admin-employees.html" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-users-cog me-2"></i> Empleados</a>
+                    <a href="admin-users.html" class="list-group-item list-group-item-action bg-transparent text-white border-0 active" aria-current="page"><i class="fas fa-users me-2"></i> Clientes</a>
+                </div>
+            </nav>
+            <div class="admin-footer-nav mt-auto">
+                <div class="list-group list-group-flush border-0">
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-cog me-2"></i> Configuración</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-user-circle me-2"></i> Perfil</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-search me-2"></i> Buscar</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-question-circle me-2"></i> Ayuda</a>
+                    <a href="index.html" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-sign-out-alt me-2"></i> Cerrar sesión</a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>Usuarios</h1>
+                <div class="admin-user-menu">
+                    <a href="#" class="admin-notifications"><i class="fas fa-bell"></i></a>
+                </div>
+            </header>
+            
+            <!-- Barra de navegación horizontal para Dashboard e Inventory -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded shadow-sm mb-4">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="admin.html"><i class="fas fa-tachometer-alt me-1"></i> Panel</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="admin-orders.html"><i class="fas fa-shopping-cart me-1"></i> Pedidos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="admin-inventory.html"><i class="fas fa-boxes me-1"></i> Inventario</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="admin-reports.html"><i class="fas fa-chart-bar me-1"></i> Informes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="admin-employees.html"><i class="fas fa-users-cog me-1"></i> Empleados</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="admin-users.html"><i class="fas fa-users me-1"></i> Clientes</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="admin-content">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2 class="card-title mb-0">Listado de Clientes <span class="badge bg-primary rounded-pill ms-2" id="contador-ventas">0</span></h2>
+                            <div class="d-flex gap-2">
+                                <select class="form-select" id="filtro-estado">
+                                    <option value="">Filtrar por estado</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="processing">Processing</option>
+                                    <option value="shipped">Shipped</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                                <a href="admin-new-user.html" class="btn btn-primary"><i class="fas fa-user-plus me-2"></i> Nuevo Usuario</a>
+                                <button class="btn btn-success export-excel" data-report="clientes"><i class="fas fa-file-excel me-2"></i> Exportar a Excel</button>
+                            </div>
+                        </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>ID</th>
+                                    <th>Cliente</th>
+                                    <th>Estado</th>
+                                    <th>Monto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2024-04-02</td>
+                                <td>ID7052</td>
+                                <td>Acme Inc</td>
+                                <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                <td>$1,200.00</td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-02</td>
+                                <td>ID7053</td>
+                                <td>Bravo Solutions</td>
+                                <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                <td>$3,600.00</td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-03</td>
+                                <td>ID7054</td>
+                                <td>Charlie Workshop</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                                <td>$850.00</td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-03</td>
+                                <td>ID7055</td>
+                                <td>Delta Paint</td>
+                                <td><span class="badge bg-info">Processing</span></td>
+                                <td>$750.00</td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-04</td>
+                                <td>ID7056</td>
+                                <td>Echo Enterprises</td>
+                                <td><span class="badge bg-info">Processing</span></td>
+                                <td>$2,500.00</td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-05</td>
+                                <td>ID7057</td>
+                                <td>Foxtrot Media</td>
+                                <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                <td>$950.00</td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-06</td>
+                                <td>ID7058</td>
+                                <td>Golf Sierra Inc</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                                <td>$2,200.00</td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-07</td>
+                                <td>ID7059</td>
+                                <td>Hotel Harmony</td>
+                                <td><span class="badge bg-info">Processing</span></td>
+                                <td>$900.00</td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-08</td>
+                                <td>ID7060</td>
+                                <td>India IT Solutions</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                                <td>$650.00</td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-09</td>
+                                <td>ID7061</td>
+                                <td>Juliet Services</td>
+                                <td><span class="badge bg-primary">Shipped</span></td>
+                                <td>$980.00</td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-10</td>
+                                <td>ID7062</td>
+                                <td>Kilo Retail Group</td>
+                                <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                <td>$1,750.00</td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-11</td>
+                                <td>ID7063</td>
+                                <td>Lima Landscaping</td>
+                                <td><span class="badge bg-primary">Shipped</span></td>
+                                <td>$450.00</td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-12</td>
+                                <td>ID7064</td>
+                                <td>Mike's Mechanics</td>
+                                <td><span class="badge bg-info">Processing</span></td>
+                                <td>$425.00</td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-13</td>
+                                <td>ID7065</td>
+                                <td>November Designs</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                                <td>$1,200.00</td>
+                            </tr>
+                            <tr>
+                                <td>2024-04-14</td>
+                                <td>ID7066</td>
+                                <td>Oscar Outdoors</td>
+                                <td><span class="badge bg-danger">Cancelled</span></td>
+                                <td>$2,300.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="#">«</a></li>
+                                <li class="page-item"><a class="page-link" href="#">‹</a></li>
+                                <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">5</a></li>
+                                <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+                                <li class="page-item"><a class="page-link" href="#">›</a></li>
+                                <li class="page-item"><a class="page-link" href="#">»</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar usuarios iniciales
+            cargarUsuarios();
+            
+            // Añadir event listener para el filtro de estado
+            const filtroEstado = document.getElementById('filtro-estado');
+            if (filtroEstado) {
+                filtroEstado.addEventListener('change', function() {
+                    const valorFiltro = this.value;
+                    if (valorFiltro) {
+                        const usuariosFiltrados = usuarios.filter(u => u.estado === valorFiltro);
+                        cargarUsuarios(usuariosFiltrados);
+                    } else {
+                        cargarUsuarios();
+                    }
+                });
+            }
+            
+            // Añadir event listener para el botón de exportar
+            const btnExportar = document.getElementById('btn-exportar');
+            if (btnExportar) {
+                btnExportar.addEventListener('click', function() {
+                    // Crear un CSV con los datos
+                    let csv = 'Fecha,ID,Cliente,Estado,Monto\n';
+                    
+                    usuarios.forEach(usuario => {
+                        csv += `${usuario.fecha},${usuario.id},"${usuario.nombre}",${usuario.estado},${usuario.monto}\n`;
+                    });
+                    
+                    // Crear un blob y descargar
+                    const blob = new Blob([csv], { type: 'text/csv' });
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.setAttribute('hidden', '');
+                    a.setAttribute('href', url);
+                    a.setAttribute('download', 'ventas.csv');
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    
+                    mostrarNotificacion('Datos exportados correctamente');
+                });
+            }
+            
+            // Escuchar cambios en localStorage para actualizar en tiempo real
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'ventas') {
+                    // Recargar los datos desde localStorage
+                    usuarios = JSON.parse(e.newValue) || [];
+                    cargarUsuarios();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta - TechMarket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-shopping-bag"></i> TechMarket</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="blogs.html">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions" id="user-actions">
+                <!-- El contenido se actualizará dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="breadcrumb">
+            <div class="container">
+                <nav>
+                    <a href="index.html">Home</a> > <span>Mi Cuenta</span>
+                </nav>
+            </div>
+        </section>
+
+        <section class="account-section">
+            <div class="container">
+                <h1>Mi Cuenta</h1>
+                <div class="account-info">
+                    <div class="user-profile">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle fa-5x"></i>
+                        </div>
+                        <div class="user-details">
+                            <h2 id="user-name">Nombre de Usuario</h2>
+                            <p id="user-email">correo@ejemplo.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="account-options">
+                        <h3>Información Personal</h3>
+                        <div class="info-card">
+                            <div class="info-row">
+                                <span class="info-label">Nombre:</span>
+                                <span class="info-value" id="info-nombre"></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">RUN:</span>
+                                <span class="info-value" id="info-run"></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Email:</span>
+                                <span class="info-value" id="info-email"></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Teléfono:</span>
+                                <span class="info-value" id="info-telefono"></span>
+                            </div>
+                        </div>
+                        
+                        <h3>Dirección</h3>
+                        <div class="info-card">
+                            <div class="info-row">
+                                <span class="info-label">Región:</span>
+                                <span class="info-value" id="info-region"></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Comuna:</span>
+                                <span class="info-value" id="info-comuna"></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Dirección:</span>
+                                <span class="info-value" id="info-direccion"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="account-actions">
+                        <button id="logout-btn" class="btn-primary">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>Email: info@tienda.com</p>
+                    <p>Teléfono: +56 9 1234 5678</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tienda Online. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

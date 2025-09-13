@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos - Panel de Administración</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <div class="admin-container">
+        <!-- Sidebar de navegación -->
+        <aside class="admin-sidebar bg-dark text-white d-flex flex-column h-100">
+            <div class="admin-logo p-3 d-flex align-items-center">
+                <div class="admin-logo-img me-2">
+                    <i class="fas fa-store fa-lg" style="color: white;"></i>
+                </div>
+                <span class="fs-5 fw-semibold">Empresa</span>
+            </div>
+            <nav class="admin-nav flex-grow-1">
+                <div class="list-group list-group-flush border-0">
+                    <a href="admin.html" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-tachometer-alt me-2"></i> Panel</a>
+                    <a href="admin-orders.html" class="list-group-item list-group-item-action bg-transparent text-white border-0 active" aria-current="page"><i class="fas fa-shopping-cart me-2"></i> Pedidos</a>
+                    <a href="admin-inventory.html" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-boxes me-2"></i> Inventario</a>
+                    <a href="admin-reports.html" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-chart-bar me-2"></i> Informes</a>
+                    <a href="admin-employees.html" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-users-cog me-2"></i> Empleados</a>
+                    <a href="admin-users.html" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-users me-2"></i> Clientes</a>
+                </div>
+            </nav>
+            <div class="admin-footer-nav mt-auto">
+                <div class="list-group list-group-flush border-0">
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-cog me-2"></i> Configuración</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-user-circle me-2"></i> Perfil</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-search me-2"></i> Buscar</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-question-circle me-2"></i> Ayuda</a>
+                    <a href="index.html" class="list-group-item list-group-item-action bg-transparent text-white border-0"><i class="fas fa-sign-out-alt me-2"></i> Cerrar sesión</a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>Gestión de Pedidos</h1>
+                <div class="admin-user-menu">
+                    <a href="#" class="admin-notifications"><i class="fas fa-bell"></i></a>
+                </div>
+            </header>
+            
+            <!-- Barra de navegación horizontal para Dashboard e Inventory -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded shadow-sm mb-4">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="admin.html"><i class="fas fa-tachometer-alt me-1"></i> Panel</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="admin-orders.html"><i class="fas fa-shopping-cart me-1"></i> Pedidos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="admin-inventory.html"><i class="fas fa-boxes me-1"></i> Inventario</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="admin-content">
+                <div class="mb-4 pb-2 border-bottom d-flex justify-content-between align-items-center">
+                    <h2 class="fw-bold"><i class="fas fa-shopping-cart me-2"></i> Lista de Pedidos</h2>
+                    <div>
+                        <button class="btn btn-success me-2" onclick="simularPedido()"><i class="fas fa-plus me-2"></i>Simular Pedido</button>
+                        <button class="btn btn-success me-2 export-excel" data-report="pedidos"><i class="fas fa-file-excel me-2"></i>Exportar a Excel</button>
+                        <button class="btn btn-primary"><i class="fas fa-plus me-2"></i>Nuevo Pedido</button>
+                    </div>
+                </div>
+                
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>ID Pedido</th>
+                                        <th>Cliente</th>
+                                        <th>Fecha</th>
+                                        <th>Estado</th>
+                                        <th>Total</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabla-pedidos">
+                                    <!-- Los datos se cargarán dinámicamente desde localStorage -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
